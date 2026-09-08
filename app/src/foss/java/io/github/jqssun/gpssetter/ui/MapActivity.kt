@@ -91,20 +91,10 @@ class MapActivity: BaseMapActivity(), OnMapReadyCallback, MapLibreMap.OnMapClick
         with(mMap){
 
 
-            // maplibre custom ui
-            var typeUrl = "https://demotiles.maplibre.org/style.json"
-            if (viewModel.mapType.equals(2)) { // Satellite
-                typeUrl = "mapbox://styles/mapbox/satellite-streets-v12"
-            } else if (viewModel.mapType.equals(3)) { // Terrain
-                typeUrl = "mapbox://styles/mapbox/outdoors-v12"
-            } else if (viewModel.mapType.equals(4)) { // Hybrid
-                typeUrl = "mapbox://styles/mapbox/navigation-day-v1"
-            } else {
-                typeUrl = "mapbox://styles/mapbox/streets-v12"
-            }
-            typeUrl = "https://tiles.openfreemap.org/styles/liberty"
+                // maplibre custom ui
+                val typeUrl = "https://tiles.openfreemap.org/styles/liberty"
 
-            setStyle(typeUrl) { style ->
+                setStyle(typeUrl) { style ->
                 if (ActivityCompat.checkSelfPermission(this@MapActivity, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) { 
                     val locationComponent = mMap.locationComponent
                     locationComponent.activateLocationComponent(
