@@ -21,6 +21,23 @@ jobs:
           java-version: "17"
           cache: gradle
 
+      - name: Create temporary signing files
+        run: |
+          keytool -genkeypair \
+            -keystore upload.jks \
+            -storepass android \
+            -keypass android \
+            -alias upload \
+            -keyalg RSA \
+            -keysize 2048 \
+            -validity 10000 \
+            -dname "CN=GPS Setter"
+
+          echo "storeFile=../upload.jks" > local.properties
+          echo "storePassword=android" >> local.properties
+          echo "keyAlias=upload" >> local.properties
+          echo "keyPassword=android" >> local.properties
+
       - name: Grant Gradle permission
         run: chmod +x gradlew
 
