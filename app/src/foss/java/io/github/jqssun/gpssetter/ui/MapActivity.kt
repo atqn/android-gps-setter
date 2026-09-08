@@ -102,7 +102,7 @@ class MapActivity: BaseMapActivity(), OnMapReadyCallback, MapLibreMap.OnMapClick
             } else {
                 typeUrl = "mapbox://styles/mapbox/streets-v12"
             }
-            typeUrl = "https://demotiles.maplibre.org/style.json"
+            typeUrl = "https://tiles.openfreemap.org/styles/liberty"
 
             setStyle(typeUrl) { style ->
                 if (ActivityCompat.checkSelfPermission(this@MapActivity, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) { 
